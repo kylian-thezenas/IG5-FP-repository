@@ -39,4 +39,8 @@ processedDf.show(5)
 
 // COMMAND ----------
 
+import spark.implicits._
 println("\n count tag null: " + df.filter($"tag".isNull).count + "\n count parentId null: " + df.filter($"parentId".isNull).count)
+
+val highScore = df.filter(col("score") > 20)
+highScore.show(20)
